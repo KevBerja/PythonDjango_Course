@@ -11,7 +11,8 @@ def inicio(request):
 	if form.is_valid():
 		form_data = form.cleaned_data
 		abc = form_data.get("email")
-		obj = Registrado.objects.create(email=abc)
+		abc2 = form_data.get("nombre")
+		obj = Registrado.objects.create(email=abc, nombre=abc2)
 	context = {
 	"el_form": form,
 
