@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     #Apps de terceros
     'crispy_forms',
+    'registration',
     #Mis apps
     'boletin',
 ]
@@ -60,6 +62,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'WORKSPACE_PY.urls'
+
+ACCOUNT_ACTIVATION_DAYS = 7
+
+REGISTRATION_AUTO_LOGIN = True
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL ='/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
