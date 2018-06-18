@@ -2,16 +2,20 @@
 {% load crispy_forms_tags %}
 {% block head_title %}Bienvenidos | {{block.super}}{% endblock %}
 
-{% block jumbotron_content %}
-<div class='row'>
-	<div class='col-sm-6'>
-    <h1>Probar Django 1.13</h1>
-        <p>Proyecto de iniciación a Djanjo. El objetivo es construir una app web simple.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Ver más &raquo;</a>
-        </p>
-    </div>
-    <div class='col-sm-6' style='background-color:black;height:300px;'></div>
+{% block jumbotron %}
+<div class="jumbotron">
+  
+
+	<div class='row'>
+		<div class='col-sm-6'>
+	    <h1>Probar Django 1.13</h1>
+	        <p>Proyecto de iniciación a Djanjo. El objetivo es construir una app web simple.</p>
+	        <p>
+	          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Ver más &raquo;</a>
+	        </p>
+	    </div>
+	    <div class='col-sm-6' style='background-color:black;height:300px;'></div>
+	</div>
 </div>
 {% endblock %}
 
