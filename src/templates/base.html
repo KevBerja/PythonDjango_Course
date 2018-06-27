@@ -13,6 +13,10 @@
 
     <title>{% block head_title %}WORKSPACE_PY{% endblock %}</title>
 
+    <style>
+    {% block style %}
+    {% endblock %}
+    </style>
     {% include "head_css.html" %}
 
    </head>
@@ -21,12 +25,9 @@
 
     {% include "navbar.html" %}
     
+    {% block jumbotron %}
+    {% endblock %}
     <div class="container">
-
-      {% block jumbotron %}
-      <!-- Main component for a primary marketing message or call to action -->
-     
-      {% endblock %}
 
       {% block content %}
       {% endblock %}

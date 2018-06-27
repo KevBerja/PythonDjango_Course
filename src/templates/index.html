@@ -1,20 +1,30 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% block head_title %}Bienvenidos | {{block.super}}{% endblock %}
+{% block head_title %}WELCOME | {{block.super}}{% endblock %}
+
+ <style>
+    {% block style %}
+    .jumbotron {
+    	background-color: #172548!important;
+    	color: #FFF!important;
+    }
+    {% endblock %}
+ </style>
 
 {% block jumbotron %}
 <div class="jumbotron">
-  
+ <div class="container">
 
 	<div class='row'>
 		<div class='col-sm-6'>
 	    <h1>Probar Django 1.13</h1>
-	        <p>Proyecto de iniciación a Djanjo. El objetivo es construir una app web simple.</p>
+	        <p>Proyecto de iniciación a Django. El objetivo es construir una app web simple.</p>
 	        <p>
-	          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Ver más &raquo;</a>
+	          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">See more &raquo;</a>
 	        </p>
 	    </div>
-	    <div class='col-sm-6' style='background-color:black;height:300px;'></div>
+	    <div class='col-sm-6'><iframe width="560" height="315" src="https://www.youtube.com/embed/h_HkUbukpNM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+		</div>
 	</div>
 </div>
 {% endblock %}
@@ -25,21 +35,28 @@
 
 {% block content %}
 <div class='row'>
-	<div class='col-sm3 pull-right'>
+	<div class='col-sm3 pull-left'>
 		<p class='lead'>{{ titulo }}</p>
+		{% if not user.is_authenticated %}
 		<form method="POST" action="">{% csrf_token %}
 			{{ el_form|crispy }}
-			<input class ='btn btn-primary' type = "submit" value = "Registrarme"/>
+			<input class ='btn btn-primary' type="submit" value="Notify"/>
 		</form>
+		{% else %}
+		<i class="fas fa-child"></i>
+		{% endif %}
 	</div>
 	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Espacio 1</p>
+		<p class='lead text-align-center'></p>
+		<!--<img src="../../img/django-logo.jpg"/>-->
 	</div>
 	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Espacio 2</p>
+		<p class='lead text-align-center'></p>
+		<!--<img src="../../img/python-logo.jpg"/>-->
 	</div>
 	<div class='col-sm-3'>
-		<p class='lead text-align-center'>Espacio 3</p>
+		<p class='lead text-align-center'></p>
+		<!--<img src="../../img/bootstrap-logo.jpg"/>-->
 	</div>
 </div>
 {% endblock %}

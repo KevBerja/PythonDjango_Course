@@ -8,9 +8,9 @@ from .models import Registrado
 
 # Create your views here.
 def inicio(request):
-	titulo = "Bienvenid@"
+	titulo = "WELCOME"
 	if request.user.is_authenticated():
-		titulo = "Bienvenido %s " %(request.user)
+		titulo = "Welcome %s " %(request.user)
 	form = RegModelForm(request.POST or None)
 	context = {
 		"titulo": titulo,
@@ -20,15 +20,15 @@ def inicio(request):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		if not instance.nombre:
-			instance.nombre = "PERSONA"
+			instance.nombre = "PERSON"
 		instance.save()
 		context = {
-			"titulo": "Gracias %s!" %(nombre)
+			"titulo": "Thank you %s!" %(nombre)
 		}
 
 		if not nombre:
 			context = {
-				"titulo": "Gracias %s!" %(email)
+				"titulo": "Thank you %s!" %(email)
 			}
 
 		print instance
@@ -38,7 +38,7 @@ def inicio(request):
 
 
 def contact(request):
-	titulo = "Contacto"
+	titulo = "Contact"
 	form = ContactForm(request.POST or None)
 	if form.is_valid():
 		for key, value in form.cleaned_data.iteritems():
@@ -49,10 +49,10 @@ def contact(request):
 		form_nombre = form.cleaned_data.get("nombre")
 		form_email = form.cleaned_data.get("email")
 		form_mensaje = form.cleaned_data.get("mensaje")
-		asunto = 'Form de Contacto'
+		asunto = 'Contact form'
 		email_from = settings.EMAIL_HOST_USER
 		email_to = [email_from, "otroemail@gmail.com"]
-		email_mensaje = "%s: %s enviado por %s" %(form_nombre, form_mensaje, form_email)
+		email_mensaje = "%s: %s Sent by %s" %(form_nombre, form_mensaje, form_email)
 		send_mail(asunto, 
 			mensaje_email,
 			email_from,
